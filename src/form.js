@@ -1,11 +1,22 @@
 import React from "react";
-import FormHOC from "./hocs/form";
+import { connectForm } from "./hocs";
 import { compose } from "functional";
 
-const Component = ({ form, formModels }) => {
+const Component = ({ form, formModels, formActions }) => {
+  const validate = () => {
+    formActions.touchForm();
+  }
+
   return (
     <div>
       <div>{form.input}</div>
+      <div><button onClick={() => {
+        formActions.setFormData({
+          input: "yo",
+          tt: "trr"
+        });
+        formActions.untouchForm();
+      }}>setForm</button><button onClick={validate}>validate</button></div>
       <div>
         <input
           defaultValue={form.input}
@@ -21,19 +32,20 @@ const Component = ({ form, formModels }) => {
         onChange={() => (form.check = !form.check)}
       />
       <div>{formModels.check.$errors.join()}</div>
+
     </div>
   );
 };
 
 export default compose(
-  FormHOC(
+  connectForm(
     {
       form: {
         input: {
           defaultValue: "123"
         },
         check: {
-          defaultValue: false
+          defaultValue: true
         }
       },
       validations: {
@@ -44,6 +56,6 @@ export default compose(
         check: [value => !value && "required"]
       }
     },
-    ({ form, formModels }) => ({ form, formModels })
+    ({ form, formModels, formActions }) => ({ form, formModels, formActions })
   )
 )(Component);
