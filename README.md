@@ -6,5 +6,5 @@ Easy form validator by using React HOC
 
 To install:
 ```sh
-npm install --save redux
+npm install react-formy-hoc
 ```
