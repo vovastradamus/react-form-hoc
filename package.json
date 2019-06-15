@@ -1,8 +1,9 @@
 {
   "name": "react-formy-hoc",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "keywords": [],
+  "homepage": "https://github.com/vovastradamus/react-form-hoc",
   "main": "src/index.js",
   "dependencies": {
     "lodash": "^4.17.11"
