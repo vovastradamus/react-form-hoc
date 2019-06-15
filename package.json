@@ -2,7 +2,7 @@
   "name": "react-formy-hoc",
   "version": "1.0.1",
   "description": "",
-  "keywords": [],
+  "keywords": ["react", "forms", "hoc", "validate"],
   "homepage": "https://github.com/vovastradamus/react-form-hoc",
   "main": "src/index.js",
   "dependencies": {
