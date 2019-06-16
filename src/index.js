@@ -137,6 +137,34 @@ class Form {
   }
 }
 
+/**
+ * 
+ * @typedef {{defaultValue: string | number | boolean}} ConnectFormField
+ */
+
+/**
+ * @param {{form: Object<string, ConnectFormField>: validations: Object<string, CallableFunction[]>}}
+ * @param {function({form: Object, formModels: Object, formActions: Object})} formToProps
+ * 
+ * @example 
+ * connectForm(
+ *  {
+ *      form: {
+ *          input: {
+ *              defaultValue: 
+ *          }
+ *      },
+ *      validations: {
+ *          input: [
+ *              (value) => !value && "required"
+ *          ]
+ *      }
+ *  },
+ *  ({ form, formModels, formActions }) => ({ form, formModels, formActions })
+ * )(Component)
+ * 
+ * @returns {React.Component} 
+ */
 export const connectForm = (
   { form = {}, validations = {} },
   formToProps = ({ form }) => ({ form })
